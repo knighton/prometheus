@@ -4,6 +4,7 @@ is Ubuntu - Gnome + Xfce).
     On Xubuntu:
     * Notepad.exe = mousepad (+ vim below)
     * File manager = thunar
+    * Terminal = xfce4-terminal
     * Web browser = firefox (+ google-chrome, opera below)
 
 1.  Make the backgrounds black.
