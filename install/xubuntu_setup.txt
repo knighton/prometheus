@@ -83,3 +83,7 @@ xfce4-terminal --geometry 102x90+1290+0 &
     * F3 = ~/i/scripts/spawn_one_shell.sh
     * F4 = ~/i/scripts/spawn_three_shells.sh
     * F5 = opera
+
+9. For inbound SSH, curl, etc.
+
+    * audo apt-get install curl ssh
