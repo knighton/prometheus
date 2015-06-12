@@ -60,7 +60,7 @@ xfce4-terminal --geometry 102x90+1290+0 &
 
 6. Set git defaults.
 
-    * sudo apt-get install git
+    * sudo apt-get install git gitk
     * Create your ~/.gitconfig, for example
 
 --------------------------------------------------------------------------------
