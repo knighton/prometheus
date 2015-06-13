@@ -55,9 +55,14 @@ xfce4-terminal --geometry 102x90+1290+0 &
 * Set any custom vim color files (~/.vim/colors/).
 * Set your .vimrc.
 
-#### 6. Set git defaults.
+#### 6. Configure git.
 
-* sudo apt-get install git gitk
+* Install git.
+
+```
+sudo apt-get install git gitk
+```
+
 * Create your ~/.gitconfig, for example
 
 ```
