@@ -103,7 +103,7 @@ git clone https://github.com/karpathy/char-rnn
 git clone https://github.com/wojciechz/learning_to_execute/
 ```
 
-#### 7. NVIDIA cuDNN
+#### 7. cuDNN
 
 Go to https://developer.nvidia.com/cuDNN and click Download.  Registration is required.  Authorization takes about a day.  Once you have that file:
 
@@ -120,9 +120,15 @@ Now, install cuDNN with luarocks.
 sudo luarocks install cudnn
 ```
 
-#### 8. caffe
+#### 8. fbcunn
 
-(from http://caffe.berkeleyvision.org/install_apt.html, http://caffe.berkeleyvision.org/installation.html)
+TODO
+
+#### 9. caffe
+
+(from http://caffe.berkeleyvision.org/installation.html)
+
+Install requirements (from http://caffe.berkeleyvision.org/install_apt.html):
 
 ```
 sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev \
@@ -197,4 +203,13 @@ TODO: something about
 
 ```
 make distribute
+```
+
+#### 10. Theano
+
+(from http://deeplearning.net/software/theano/install_ubuntu.html)
+
+```
+sudo apt-get install python-numpy python-scipy python-dev python-pip python-nose g++ libopenblas-dev git
+sudo pip install Theano
 ```
