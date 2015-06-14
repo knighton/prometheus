@@ -55,7 +55,9 @@ sudo apt-get update
 sudo apt-get install cuda
 
 # Add their binaries to our path.
-echo "export PATH=/usr/local/cuda-7.0/bin/:\$PATH" >> ~/.bashrc && source ~/.bashrc
+echo "export PATH=\$PATH:/usr/local/cuda-7.0/bin/" >> ~/.bashrc
+echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/usr/local/cuda-7.0/targets/x86_64-linux/lib/" >> ~/.bashrc
+source ~/.bashrc
 
 # A reboot is now required.
 sudo shutdown -r now
@@ -120,7 +122,7 @@ sudo luarocks install cudnn
 
 #### 8. caffe
 
-(from http://caffe.berkeleyvision.org/install_apt.html)
+(from http://caffe.berkeleyvision.org/install_apt.html, http://caffe.berkeleyvision.org/installation.html)
 
 ```
 sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev \
@@ -130,4 +132,70 @@ sudo apt-get install libatlas-base-dev
 
 sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev \
     protobuf-compiler
+
+sudo apt-get install libboost-python-dev
+```
+
+Either download a release or clone from the repo.
+
+As root:
+
+```
+cd
+git clone https://github.com/BVLC/caffe
+cd caffe
+```
+
+Create Makefile.config.
+
+```
+cp Makefile.config.example Makefile.config
+```
+
+Uncomment USE_CUDNN := 1 in Makefile.config.
+
+Python installation.
+
+```
+cd python/
+pip install -r requirements.txt
+```
+
+Add a line to your ~/.bashrc:
+
+```
+echo "export PYTHONPATH=/root/caffe/python:\$PYTHONPATH" >> ~/.bashrc
+```
+
+Make a fix specific to Ubuntu 15.04 (from https://groups.google.com/d/msg/caffe-users/cdyqjNpoFRY/yBI50gbfqR0J, https://ouxinyu.github.io/Blogs/20140723001.html):
+
+```
+ln /usr/lib/x86_64-linux-gnu/hdf5/serial/libhdf5* /usr/lib/x86_64-linux-gnu/
+```
+
+Modify the Makefile to add a line at :348
+
+```
+LIBRARY_DIRS += /usr/lib/x86_64-linux-gnu/hdf5/serial  # fix for ubuntu 15.04
+```
+
+Modify the Makefile to add a line at :355
+
+```
+INCLUDE_DIRS += /usr/include/hdf5/serial/  # fix for ubuntu 15.04
+```
+
+Now, we can build.
+
+```
+make all -j12
+make test -j12
+make runtest -j12
+make pycaffe -j12
+```
+
+TODO: something about
+
+```
+make distribute
 ```
