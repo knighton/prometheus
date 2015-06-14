@@ -157,8 +157,7 @@ Uncomment USE_CUDNN := 1 in Makefile.config.
 Python installation.
 
 ```
-cd python/
-pip install -r requirements.txt
+for req in $(cat python/requirements.txt); do pip install $req; done
 ```
 
 Add a line to your ~/.bashrc:
