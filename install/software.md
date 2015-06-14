@@ -45,6 +45,8 @@ luarocks install lzmq
 
 #### 4. cuda
 
+Don't install using apt-get.  Instead, get the latest from NVIDIA.
+
 ```
 # Alternatively, search for [nvidia cuda] and download the right one.
 wget http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1410/x86_64/cuda-repo-ubuntu1410_7.0-28_amd64.deb
@@ -52,11 +54,32 @@ thunar cuda-repo-ubuntu1410_7.0-28_amd64.deb
 sudo apt-get update
 sudo apt-get install cuda
 
+# Add their binaries to our path.
+echo "export PATH=/usr/local/cuda-7.0/bin/:\$PATH" >> ~/.bashrc && source ~/.bashrc
+
 # A reboot is now required.
 sudo shutdown -r now
 
 # Now, we can install cuda + torch.
 luarocks install cutorch
+```
+
+NVIDIA kernel module version:
+
+```
+cat /proc/driver/nvidia/version 
+```
+
+Cuda version:
+
+```
+nvcc --version
+```
+
+Neat info:
+
+```
+nvidia-smi
 ```
 
 #### 5. char-rnn
@@ -76,4 +99,17 @@ git clone https://github.com/karpathy/char-rnn
 
 ```
 git clone https://github.com/wojciechz/learning_to_execute/
+```
+#### 7. caffe
+
+(from http://caffe.berkeleyvision.org/install_apt.html)
+
+```
+sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev \
+    libopencv-dev libboost-all-dev libhdf5-serial-dev
+
+sudo apt-get install libatlas-base-dev
+
+sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev \
+    protobuf-compiler
 ```
