@@ -100,7 +100,25 @@ git clone https://github.com/karpathy/char-rnn
 ```
 git clone https://github.com/wojciechz/learning_to_execute/
 ```
-#### 7. caffe
+
+#### 7. NVIDIA cuDNN
+
+Go to https://developer.nvidia.com/cuDNN and click Download.  Registration is required.  Authorization takes about a day.  Once you have that file:
+
+```
+tar -xzvf cudnn-6.5-linux-x64-v2.tar.gz
+cd cudnn-6.5-linux-x64-v2
+sudo cp -a lib* /usr/local/cuda/lib64/
+sudo cp -a cudnn.h /usr/local/cuda/include/
+```
+
+Now, install cuDNN with luarocks.
+
+```
+sudo luarocks install cudnn
+```
+
+#### 8. caffe
 
 (from http://caffe.berkeleyvision.org/install_apt.html)
 
