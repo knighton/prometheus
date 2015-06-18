@@ -1,6 +1,6 @@
 #### 1. Configure pip
 
-    ~/.pip/conf
+    ~/.pip/pip.conf
 
 #### 2. Configure ssh
 
