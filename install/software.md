@@ -214,5 +214,18 @@ sudo apt-get install python-numpy python-scipy python-dev python-pip python-nose
 sudo pip install Theano
 ```
 
-TODO: Theano on GPU (easy)
-TODO: keras
+Then put it on the GPU by creating a file "~/.theanorc" containing:
+
+```
+[global]
+device = gpu
+floatX = float32
+```
+
+#### 11. keras
+
+Relies on theano.
+
+```
+sudo pip install keras
+```
